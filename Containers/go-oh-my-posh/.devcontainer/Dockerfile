@@ -10,7 +10,8 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 # Install powershell
 ARG PS_VERSION="7.2.0"
-RUN wget https://github.com/PowerShell/PowerShell/releases/download/v$PS_VERSION/powershell-$PS_VERSION-linux-$(dpkg --print-architecture).tar.gz -O pwsh.tar.gz && \
+ARG PS_ARCH="arm64"
+RUN wget https://github.com/PowerShell/PowerShell/releases/download/v$PS_VERSION/powershell-$PS_VERSION-linux-$PS_ARCH.tar.gz -O pwsh.tar.gz && \
     mkdir /usr/local/pwsh && \
     tar Cxvfz /usr/local/pwsh pwsh.tar.gz && \
     rm pwsh.tar.gz
