@@ -17,4 +17,5 @@ if [ ! -d "~/.kube/" ]; then
 fi
 
 k3d kubeconfig get demo > ~/.kube/config
+chmod 600 ~/.kube/config
 kubectl cluster-info
