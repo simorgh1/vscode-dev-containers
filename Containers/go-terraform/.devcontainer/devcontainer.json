@@ -1,0 +1,79 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/go
+{
+  "name": "Go Terraform",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      // Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.17
+      // Append -bullseye or -buster to pin to an OS version.
+      // Use -bullseye variants on local arm64/Apple Silicon.
+      "VARIANT": "1.17-bullseye",
+
+      // Override me with your own timezone:
+      "TZ": "UTC",
+      // Use one of the "TZ database name" entries from:
+      // https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+      "NODE_VERSION": "lts/*"
+    }
+  },
+
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined",
+    "-v",
+    "${localEnv:HOME}/.aws:/home/vscode/.aws:ro"
+  ],
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.useLanguageServer": true,
+    "go.gopath": "/go",
+    "go.goroot": "/usr/local/go",
+    "terminal.integrated.profiles.linux": {
+      "bash": {
+        "path": "bash"
+      },
+      "zsh": {
+        "path": "zsh"
+      },
+      "tmux": {
+        "path": "tmux",
+        "icon": "terminal-tmux"
+      }
+    },
+    "tasks.statusbar.default.hide": true
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "actboy168.tasks",
+    "eamodio.gitlens",
+    "bungcip.better-toml",
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "golang.go",
+    "redhat.vscode-yaml",
+    "yzhang.markdown-all-in-one",
+    "amazonwebservices.aws-toolkit-vscode",
+    "oderwat.indent-rainbow",
+    "sirtori.indenticator",
+    "4ops.terraform",
+    "hashicorp.terraform",
+    "eamodio.gitlens"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "go version",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode"
+}
