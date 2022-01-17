@@ -1,7 +1,12 @@
 {
   "name": "K3d",
   "dockerFile": "Dockerfile",
-  "runArgs": ["--init", "--privileged"],
+  "runArgs": [
+    "--init",
+    "--privileged",
+    "-v",
+    "${localEnv:HOME}/.aws:/home/vscode/.aws:ro"
+  ],
   "mounts": [
     "source=dind-var-lib-docker-k3d,target=/var/lib/docker,type=volume"
   ],
@@ -11,18 +16,23 @@
   "settings": {},
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-	"ms-azuretools.vscode-docker",
-	"ms-python.vscode-pylance",
-	"ms-python.python",
-	"dbaeumer.vscode-eslint",
-	"eamodio.gitlens",
-	"oliversturm.fix-json",
-	"donjayamanne.githistory",
-	"pkief.material-icon-theme",
-	"esbenp.prettier-vscode",
-	"streetsidesoftware.code-spell-checker",
-	"ms-kubernetes-tools.vscode-kubernetes-tools"
-],
+    "ms-azuretools.vscode-docker",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "oliversturm.fix-json",
+    "donjayamanne.githistory",
+    "pkief.material-icon-theme",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "amazonwebservices.aws-toolkit-vscode",
+    "oderwat.indent-rainbow",
+    "sirtori.indenticator",
+    "4ops.terraform",
+    "hashicorp.terraform"
+  ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
