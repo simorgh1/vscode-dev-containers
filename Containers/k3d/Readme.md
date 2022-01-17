@@ -17,3 +17,17 @@ By default, non-root user is enabled and could be configured in devcontainer.jso
 - Fix Json
 - ESLint
 - Material Icon Theme
+- AWS Toolkit
+- Terraform
+- Indenticator
+- Indent-rainbow
+
+# Installed tools
+
+- docker cli
+- docker-compose
+- terraform
+- terragrunt
+- aws cli
+- helm
+- kubectl
